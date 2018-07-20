@@ -14,4 +14,4 @@ What blockers do you have?
 
 Have you identified AND documented the MVP?
 
-search bar to find game, have a brief description, video game rating, current twitch streamers playing the game you have searched.
+search bar to find game, have a brief description, video game rating, current twitch streamers playing the game you have searched. heck
