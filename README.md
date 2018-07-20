@@ -10,7 +10,7 @@
 ## What blockers do you have?
     * figuring out github so we can all work seamlessly 
         -Who can resolve these blockers?
-        asking questions/figuring it out ourselves
+        asking any of the TA's or figuring it out ourselves
     
 ## Have you identified AND documented the MVP?
 
