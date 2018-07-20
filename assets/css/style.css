@@ -1,0 +1,46 @@
+nav {
+    width: 100%;
+    border: solid red 3px;
+    height: 10vh;
+}
+
+.brand{
+    text-align: right;
+    display: inline-block;
+}
+
+section{
+    display: inline-block;
+    padding: 10px;
+    height: 80vh;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 55%;
+    border: solid red 3px;
+}
+
+#game-pic-holder{
+    height: 300px;
+    width: 300px;
+    border: solid green 3px;
+}
+
+#twitch-streamer-container{
+    margin-top: 10px;
+    margin-left: 10px;
+    float: right;
+    width: 40%;
+    height: 50vh;
+    border: solid red 3px;
+}
+
+.twitch-pic{
+    float: left;
+    margin: 5px;
+}
+
+.stream{
+    border: solid green 3px;
+    margin: 10px;
+    height: 10vh;
+}
