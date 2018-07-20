@@ -7,10 +7,10 @@ How are you organizing your Backlog?
 idk yet...
 
 What blockers do you have?
-
+getting used to github flow
 
           -Who can resolve these blockers?
-          
+          by using github flow
 
 Have you identified AND documented the MVP?
 
