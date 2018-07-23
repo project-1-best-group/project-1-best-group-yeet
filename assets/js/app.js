@@ -1,5 +1,6 @@
 //----------TWITCH API-------------
-/*The twitch API will require 2 separate API calls, I think. You need to find the game ID based on the game searched by the user, and once you have that ID, you need to make a second call in order to grab the streamers for that game. */
+
+/*The twitch API will require 2 separate API calls. You need to find the game ID based on the game searched by the user, and once you have that ID, you need to make a second call in order to grab the streamers for that game. */
 
 //API Client ID for twitch. This lets twitch identify our application
 var twitchKey = "j14eing3pnpaqymo51m1hdbcrvsveb";
@@ -16,15 +17,8 @@ var gameURL = `${twitchGameURL}?name=${searchTerm}`;
 //The API endpoint for grabbing streams
 var twitchStreamURL = "https://api.twitch.tv/helix/streams";
 
-//The gameID will be grabbed by the first API call to twitch
-var gameID = 0
-
 //The number of streams to return
 var limit = 5;
-
-//The streamURL combines the above parameters and builds the link to be passed into AJAX to return the streams
-var streamURL = `${twitchStreamURL}?game_id=${gameID}&first=${limit}`;
-
 
 //Twitch API Call for the Game ID searches the game entered by the user and stores the game ID in the gameID variable
 $.ajax({
@@ -32,19 +26,30 @@ $.ajax({
     method: "GET",
     headers: {"Client-ID": twitchKey}
 }).then(function(response){
-    console.log(response);
-    gameID = (response.data[0].id);
-    getStreams();
-    
-})
+    var gameID = (response.data[0].id);
+    getStreams(gameID);
+});
 
 //Twitch API Call for Streams must execute AFTER the request for the game ID, or else it wont have an ID to search for
-function getStreams(){
+function getStreams(ID){
+
+    //The streamURL uses the game ID from the first AJAX request to build the queryURL for streams
+    var streamURL = `${twitchStreamURL}?game_id=${ID}&first=${limit}`;
+
     $.ajax({
         url: streamURL,
         method: "GET",
         headers: {"Client-ID": twitchKey}
     }).then(function(response){
-        console.log(response);
+        response.data.forEach(e => {
+            console.log(e);
+            var width = e.thumbnail_url.replace("{width}", "150");
+            var pic = width.replace("{height}", "100");
+            $("#twitch-streamer-container").append(`
+            <div class="stream">
+                <p>${e.title}</p>
+                <img class="img-responsive" src=${pic}>
+            </div>`);
+        });
     });
 }
