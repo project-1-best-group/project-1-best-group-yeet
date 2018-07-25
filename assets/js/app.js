@@ -14,7 +14,7 @@ var twitchStreamURL = "https://api.twitch.tv/helix/streams";
 var limit = 5;
 
 //Twitch API Call for the Game ID searches the game entered by the user and stores the game ID in the gameID variable
-function searchGame(game){
+function searchStreams(game){
 
     //The gameURL combines the twitch game URL with the user search
     var gameURL = `${twitchGameURL}?name=${game}`;
@@ -40,18 +40,34 @@ function getStreams(ID){
         method: "GET",
         headers: {"Client-ID": twitchKey}
     }).then(function(response){
-        $("#twitch-streamer-container").empty();
+        console.log(response);
+        $("#twitch-streamer-container").empty(); 
+        if (response.data.length == 0){ // what to do if there are no streams for the entered game
+            $("#twitch-streamer-container").append(`
+            <h2>Rip in pieces, no one is streaming this game right now </h2>
+            `);
+        }
         response.data.forEach(e => {
             var width = e.thumbnail_url.replace("{width}", "150");
             var pic = width.replace("{height}", "100");
             $("#twitch-streamer-container").append(`
             <div class="stream">
                 <p>${e.title}</p>
-                <img class="img-responsive" src=${pic}>
+                <a href=${twitchLinks(e.thumbnail_url)} target="_blank"><img class="img-responsive" src=${pic}></a>
             </div>`);
         });
+        
     });
 }
 
+/* When the user clicks on the stream thumbnail, they are redirected to twtich.tv. This method for obtaining the url without another api call was shamelessly stolen from a guy on the twitch developers forum */
+function twitchLinks(user){
+    var begin = user.indexOf('live_user_') + 10; 
+    var end = user.lastIndexOf('-\{width\}');
+    var username = user.slice(begin, end);
+    var url = 'https://www.twitch.tv/' + username;
+    return url;
+}
+
 //-------MAIN--------
-searchGame("Fortnite");
+searchStreams("Fortnite");
