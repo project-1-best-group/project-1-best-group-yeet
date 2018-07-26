@@ -54,4 +54,11 @@ function getStreams(ID){
 }
 
 //-------MAIN--------
-searchGame("Fortnite");
+searchGame("");
+
+//---- connecting button to search bar ---
+$('#searchGame').on("click", function() {
+    event.preventDefault();
+    userInput= $("#searchTerm").val().trim();
+    console.log(userInput);
+    })
