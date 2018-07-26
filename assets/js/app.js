@@ -23,6 +23,9 @@ $.ajax({
         // Transfer content to HTML
         $("#topGames").text("Top 5 Games: " + response);
 
+        var json = JSON.parse('#topGames');
+        console.log(json.name);
+
         // storing the data from the AJAX request in the results variable
         // var results = response.data;
         // Looping through each result item
