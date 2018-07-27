@@ -77,6 +77,5 @@ $('#search').on("click", function() {
     event.preventDefault();
     userInput= $("#searchTitle").val().trim();
     searchStreams(userInput);
-
     })
     
