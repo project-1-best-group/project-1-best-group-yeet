@@ -2,7 +2,7 @@
 var topGames = $(this).attr("top-games");
 
 // Constructing a queryURL using the top games
-var queryURL = "https://api-endpoint.igdb.com/games/?fields=name,popularity&order=popularity:desc&limit=5"
+var queryURL = "https://api-endpoint.igdb.com/games/?fields=name,url,popularity&order=popularity:desc&limit=5"
 
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
@@ -18,16 +18,16 @@ $.ajax({
     .then(function (response) {
         console.log(response);
 
-
         //This is an alternate to the for loop below
         //arrow function with for each array method.
         // response.forEach(game => {
         //     console.log(game)
         //     $("#topGames").append(game.name);
         // });
+
         for (var i = 0; i < response.length; i++) {
             console.log(response[i].name)
-            $("#topGames").append('<li>' + response[i].name + '</li>');
+            $('#orderedGames').append(`<li><a href=${response[i].url}>${response[i].name}</a></li>`);
         };
 
         // storing the data from the AJAX request in the results variable
