@@ -1,5 +1,15 @@
 nav {
-    border: solid red 3px;
+    border: solid black 5px;
+    background: url("../images/header.png");
+    background-position: center;
+    width:70%; 
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+body{
+    background: url("../images/background.jpg");
+    background-position: cover;
 }
 
 .brand {
@@ -10,18 +20,24 @@ section{
     padding: 10px;
     height: 90vh;
     margin-top: 10px;
-    border: solid red 3px;
+    border: solid black 5px;
+    background-color: white;
+
+
 }
 
 #game-pic-holder{
-    border: solid green 3px;
+    border: solid black 5px;
     max-width: 50%;
     height: 50vh;
+    background-color: white;
 }
 
 #twitch-streamer-container{
     margin-top: 10px;
-    border: solid red 3px;
+    border: solid black 5px;
+    background-color: white;
+
 }
 
 .stream {
