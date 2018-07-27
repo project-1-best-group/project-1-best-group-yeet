@@ -25,10 +25,14 @@ $.ajax({
         //     $("#topGames").append(game.name);
         // });
 
-        for (var i = 0; i < response.length; i++) {
-            console.log(response[i].name)
-            $('#orderedGames').append(`<li><a href=${response[i].url}>${response[i].name}</a></li>`);
-        };
+        response.map(function(val){
+            return $('#topGames').append(`<li><a href=${val.url}>${val.name}</a></li>`);
+        })
+
+        // for (var i = 0; i < response.length; i++) {
+        //     console.log(response[i].name)
+        //     $('#orderedGames').append(`<li><a href=${response[i].url}>${response[i].name}</a></li>`);
+        // };
 
         // storing the data from the AJAX request in the results variable
         // var results = response.data;
