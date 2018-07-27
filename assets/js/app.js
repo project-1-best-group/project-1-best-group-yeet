@@ -31,7 +31,7 @@ $.ajax({
         // };
 
         response.map(function(val){
-            return $('#topGames').append(`<li>${val.name}</li>`);
+            return $('#orderedGames').append(`<li>${val.name}</li>`);
         })
 
 
