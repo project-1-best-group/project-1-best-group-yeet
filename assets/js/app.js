@@ -70,12 +70,11 @@ function twitchLinks(user){
 }
 
 //-------MAIN--------
-searchStreams("kingdom hearts");
 
 //---- connecting button to search bar ---
 $('#search').on("click", function() {
     event.preventDefault();
     userInput= $("#searchTitle").val().trim();
-    console.log(userInput);
-
+    searchStreams(userInput);
     })
+    
