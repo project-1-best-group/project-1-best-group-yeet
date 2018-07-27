@@ -16,13 +16,10 @@ $.ajax({
     })
     // After data comes back from the request
     .then(function (response) {
-        // console.log(queryURL);
         console.log(response);
-        // console.log(response);
-        // var json = JSON.parse(response);
-        // console.log(response[0]);
-        // Transfer content to HTML
 
+
+        //This is an alternate to the for loop below
         //arrow function with for each array method.
         // response.forEach(game => {
         //     console.log(game)
@@ -30,8 +27,8 @@ $.ajax({
         // });
         for (var i = 0; i < response.length; i++) {
             console.log(response[i].name)
-            $("#topGames").append(response[i].name);
-        }
+            $("#topGames").append('<li>' + response[i].name + '</li>');
+        };
 
         // storing the data from the AJAX request in the results variable
         // var results = response.data;
