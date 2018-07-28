@@ -2,7 +2,7 @@
 var topGames = $(this).attr("top-games");
 
 // Constructing a queryURL using the top games
-var queryURL = "https://api-endpoint.igdb.com/games/?fields=name,total_rating&order=total_rating:desc&limit=5"
+var queryURL = "https://api-endpoint.igdb.com/games/?fields=name,popularity&order=popularity:desc&limit=5"
 
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
