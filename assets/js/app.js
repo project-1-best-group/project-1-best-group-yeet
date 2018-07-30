@@ -115,4 +115,6 @@ $('#search').on("click", function() {
     userInput= $("#searchTitle").val().trim();
     searchStreams(userInput);
     })
-    
+
+
+
