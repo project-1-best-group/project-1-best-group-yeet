@@ -1,3 +1,4 @@
+
 //----------TWITCH API-------------
 /*The twitch API will require 2 separate API calls. You need to find the game ID based on the game searched by the user, and once you have that ID, you need to make a second call in order to grab the streamers for that game. */
 
@@ -70,6 +71,7 @@ function twitchLinks(user){
 }
 
 //-------MAIN--------
+
 // Grabbing and storing the top-games property value from the button
 var topGames = $(this).attr("top-games");
 
@@ -107,6 +109,7 @@ $.ajax({
         })
 
 
+
     });
 
 //---- connecting button to search bar ---
@@ -115,4 +118,6 @@ $('#search').on("click", function() {
     userInput= $("#searchTitle").val().trim();
     searchStreams(userInput);
     })
-    
+
+    });
+
